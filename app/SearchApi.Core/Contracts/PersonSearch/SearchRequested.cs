@@ -11,9 +11,9 @@ namespace SearchApi.Core.Contracts.PersonSearch
     {
 
         [JsonConstructor]
-        public SearchRequested()
+        public SearchRequested(Guid correlationId)
         {
-            this.CorrelationId = Guid.NewGuid();
+            this.CorrelationId = correlationId;
         }
 
         public Guid CorrelationId { get; }
@@ -21,7 +21,7 @@ namespace SearchApi.Core.Contracts.PersonSearch
 
         public static SearchRequested Create()
         {
-            return new SearchRequested();
+            return new SearchRequested(Guid.NewGuid());
         } 
 
 

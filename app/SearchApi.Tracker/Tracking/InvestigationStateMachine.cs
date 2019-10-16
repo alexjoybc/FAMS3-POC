@@ -14,8 +14,7 @@ namespace SearchApi.Tracker.Tracking
         {
 
             Event(() => SearchRequested , 
-                x => x.CorrelateById(searchRequested => searchRequested.CorrelationId, context => context.Message.CorrelationId)
-                .SelectId(context => context.Message.CorrelationId));
+                x => x.CorrelateById(searchRequested => searchRequested.CorrelationId, context => context.Message.CorrelationId));
 
             InstanceState(x => x.CurrentState);
 
@@ -29,7 +28,7 @@ namespace SearchApi.Tracker.Tracking
                     .TransitionTo(Started));
 
 
-        }
+        } 
 
         public Event<SearchRequested> SearchRequested { get; private set; }
 
